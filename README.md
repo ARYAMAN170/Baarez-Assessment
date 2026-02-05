@@ -11,8 +11,6 @@ The system is divided into two independent parts:
 
 ## 📁 Project Structure
 
-## 📁 Project Structure
-
 baarez-assignment/
 ├── backend/                     # FastAPI application (The "Brain")
 │   ├── main.py                  # API endpoints and router logic
