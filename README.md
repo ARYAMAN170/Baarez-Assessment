@@ -1,105 +1,188 @@
-Baarez Assessment - Mini Agent POC
+# Baarez Assessment – Mini Agent POC 🤖
 
-This repository contains the Proof of Concept (POC) for a simple AI Agent, consisting of a Python FastAPI backend and a React/TypeScript frontend.
+This repository contains a **Proof of Concept (POC)** for a simple AI Agent built as part of the **Baarez Assessment**.
 
-The project is divided into two distinct parts as per the assignment requirements:
+The system is divided into two independent parts:
 
-Backend: The "Brain" of the agent (FastAPI + SQLite).
+- **Backend** – The *Brain* (FastAPI + SQLite)
+- **Frontend** – The *Face* (React + TypeScript + TailwindCSS)
 
-Frontend: The "Face" of the agent (React + TypeScript + TailwindCSS).
+---
 
-Project Structure
+## 📁 Project Structure
+
+## 📁 Project Structure
 
 baarez-assignment/
-├── backend/          # FastAPI application (The "Brain")
-│   ├── main.py       # API endpoints and Router logic
-│   ├── database.py   # SQLite connection and memory model
+├── backend/                     # FastAPI application (The "Brain")
+│   ├── main.py                  # API endpoints and router logic
+│   ├── database.py              # SQLite connection and memory model
+│   ├── requirements.txt
 │   └── ...
-└── frontend/         # React application (The "Face")
+│
+└── frontend/                    # React application (The "Face")
     ├── src/
-    │   ├── lib/      # Contains the mock API logic (mockApi.ts)
+    │   ├── lib/
+    │   │   └── mockApi.ts       # Mock backend logic
+    │   ├── components/
+    │   ├── pages/
     │   └── ...
+    ├── package.json
     └── ...
 
 
-1. Backend (The Brain)
+---
 
-A FastAPI service that analyzes natural language prompts and routes them to either a Calculator tool or a Memory tool.
+## 🧠 Backend (The Brain)
 
-Setup & Run
+A **FastAPI** service that analyzes natural language prompts and routes them to either:
 
-Navigate to the backend folder:
+- 🧮 **Calculator Tool**
+- 🧠 **Memory Tool** (Store and Recall information)
 
+---
+
+### ⚙️ Setup & Run
+
+1. Navigate to the backend directory:
 cd backend
 
 
-Install dependencies:
-
+2. Install dependencies:
 pip install -r requirements.txt
 
 
-Start the server:
-
+3. Start the FastAPI server:
 uvicorn main:app --reload
 
 
-Test the API: Open http://127.0.0.1:8000/docs to send POST requests.
+4. Test the API:
+- Open Swagger Docs:  
+  http://127.0.0.1:8000/docs
+- Send `POST` requests directly from the UI.
 
-Key Features
+---
 
-Router Logic: Parses natural language to determine intent (Calculate vs. Remember/Recall).
+### ✨ Key Features
 
-Database: Uses SQLite to persist user memories.
+- **Intent Router**
+- Determines whether the user wants to calculate or remember/recall information.
+- **SQLite Database**
+- Persists user memories across sessions.
+- **Calculator Tool**
+- Parses and evaluates math expressions.
+- **Memory Tool**
+- Saves and retrieves user-specific facts.
 
-Security Note: The calculator uses eval() for parsing math expressions. In a production environment, this would be replaced with a secure AST parser to prevent code injection.
+⚠️ **Security Note**  
+The calculator currently uses Python’s `eval()` for simplicity.  
+In production, this should be replaced with a secure **AST-based math parser** to prevent code injection.
 
-2. Frontend (The Face)
+---
 
-A responsive Chat UI built with React, TypeScript, and TailwindCSS.
+## 💬 Frontend (The Face)
 
-Setup & Run
+A responsive **chat-based UI** built using:
 
-Navigate to the frontend folder:
+- React
+- TypeScript
+- TailwindCSS
 
+---
+
+### ⚙️ Setup & Run
+
+1. Navigate to the frontend directory:
 cd frontend
 
 
-Install dependencies:
-
+2. Install dependencies:
 npm install
 
 
-Start the application:
-
+3. Start the development server:
 npm run dev
 
 
-Open the local URL (usually http://localhost:5173) in your browser.
+4. Open the app in your browser:
+http://localhost:5173
 
-Key Features
 
-Mock Backend: As per the assignment requirements, the frontend uses a mockApi.ts file to simulate the backend logic and network delay (1 second) directly in the browser. It does not require the Python backend to be running.
+---
 
-Bonus Implemented: The entire application is written in TypeScript.
+### ✨ Key Features
 
-State Management: Handles chat history, loading states, and input validation.
+- **Chat Interface**
+- Clean and responsive conversational UI.
+- **Mock Backend**
+- Uses `mockApi.ts` to simulate backend logic.
+- Includes a **1-second artificial network delay**.
+- Does **not** require the Python backend to be running.
+- **TypeScript (Bonus)**
+- Entire frontend is fully typed.
+- **State Management**
+- Chat history
+- Loading states
+- Input validation
 
-Usage Examples
+---
 
-Calculator Tool:
+## 🧪 Usage Examples
 
-User: "What is 10 plus 5?"
+### 🧮 Calculator Tool
 
-Agent: "The result is 15"
+**User:**
+What is 10 plus 5?
 
-Memory Tool (Save):
 
-User: "Remember my cat's name is Fluffy"
+**Agent:**
+The result is 15
 
-Agent: "I've remembered that your cat's name is Fluffy."
 
-Memory Tool (Read):
+---
 
-User: "What is my cat's name?"
+### 🧠 Memory Tool – Save
 
-Agent: "Your cat's name is Fluffy."
+**User:**
+Remember my cat's name is Fluffy
+
+
+**Agent:**
+I've remembered that your cat's name is Fluffy.
+
+
+---
+
+### 🧠 Memory Tool – Read
+
+**User:**
+What is my cat's name?
+
+
+**Agent:**
+Your cat's name is Fluffy.
+
+
+---
+
+## ✅ Notes
+
+- Backend and frontend are **decoupled by design**, as required by the assignment.
+- Frontend can run **independently** using the mock API.
+- Backend demonstrates real API routing, tool selection, and persistence.
+
+---
+
+## 📌 Summary
+
+This Mini Agent POC demonstrates:
+
+- Natural language intent routing
+- Tool-based reasoning (Calculator & Memory)
+- Clean separation of concerns
+- Modern frontend stack with TypeScript
+- Practical FastAPI backend architecture
+
+---
+
+🚀 **Ready to be extended into a full AI Agent system.**
