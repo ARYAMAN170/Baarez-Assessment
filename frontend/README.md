@@ -1,73 +1,33 @@
-# React + TypeScript + Vite
+# Baarez Frontend POC - Mini Agent Chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application built with TypeScript and TailwindCSS. It provides a chat interface to interact with the Mini Agent.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Navigate to the frontend directory:**
+    ```bash
+    cd frontend
+    ```
 
-## React Compiler
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running the Application
 
-## Expanding the ESLint configuration
+1.  **Start the Development Server:**
+    ```bash
+    npm run dev
+    ```
+    *(Note: If you configured your package.json scripts strictly as "start", use `npm start`. Standard Vite setups use `npm run dev`)*.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2.  **Open in Browser:**
+    Navigate to the URL shown in your terminal (usually `http://localhost:5173` or `http://localhost:3000`).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
+* **Mock Backend:** The frontend simulates the backend logic internally for demonstration purposes (as per assignment requirements).
+* **Typing Indicator:** Simulates a 1-second network delay.
+* **Tools Supported:**
+    * **Calculator:** Try "Calculate 5 * 10"
+    * **Memory:** Try "Remember my name is Alice" followed by "What is my name?"
